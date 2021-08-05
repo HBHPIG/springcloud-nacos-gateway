@@ -45,7 +45,7 @@ public class TopicRabbitConfig {
     }
 
     /**
-     * SecondQueue队列绑定topicExchange,键值为通配路由规则Topic.#，满足条件转发的该队列
+     * SecondQueue队列绑定topicExchange,键值为通配路由规则Topic.#，满足条件转发的该队列，测试提交git
      * @return
      */
     @Bean
