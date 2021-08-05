@@ -1,0 +1,17 @@
+server:
+  port: 8081
+eureka:
+  instance:
+    hostname: localhost
+    appname: sc-consumer
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+spring:
+  application:
+    name: order
+
+
+
+
+

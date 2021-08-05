@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.my.inventory.modules.product.dao.ProductInfoDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.my.inventory.modules.product.entity.ProductInfo">
+        <id column="info_id" property="infoId" />
+        <result column="name" property="name" />
+        <result column="info_code" property="infoCode" />
+        <result column="price" property="price" />
+        <result column="creatime" property="creatime" />
+        <result column="optuser" property="optuser" />
+        <result column="status" property="status" />
+        <result column="remarks" property="remarks" />
+    </resultMap>
+
+</mapper>

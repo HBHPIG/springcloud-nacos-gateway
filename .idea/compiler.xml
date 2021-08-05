@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="config-client" />
+        <module name="config-server" />
+        <module name="eureka-server" />
+        <module name="gateway" />
+        <module name="inventory-feign" />
+        <module name="inventoryProduct" />
+        <module name="inventoryProduct1" />
+        <module name="nacos-config" />
+        <module name="orderConsumer" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="config-server (1)" target="1.8" />
+      <module name="inventory" target="1.8" />
+      <module name="inventory (1)" target="1.8" />
+      <module name="inventory1" target="1.8" />
+      <module name="stock-nacos-provider01" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="cloud" options="-parameters" />
+      <module name="config-client" options="-parameters" />
+      <module name="config-server" options="-parameters" />
+      <module name="config-server (1)" options="-parameters" />
+      <module name="configDemo" options="-parameters" />
+      <module name="eureka-server" options="-parameters" />
+      <module name="gateway" options="-parameters" />
+      <module name="inventory" options="-parameters" />
+      <module name="inventory (1)" options="-parameters" />
+      <module name="inventory-feign" options="-parameters" />
+      <module name="inventory1" options="-parameters" />
+      <module name="inventoryProduct" options="-parameters" />
+      <module name="inventoryProduct1" options="-parameters" />
+      <module name="nacos-config" options="-parameters" />
+      <module name="orderConsumer" options="-parameters" />
+      <module name="stock-nacos-provider01" options="-parameters" />
+    </option>
+  </component>
+</project>

@@ -1,0 +1,26 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: f075a12d-326c-4ef2-9f6a-8fc64f4a43a6
+    gateway:
+      routes:
+        - id: feign
+          uri: lb://inventory-feign
+#          第一种：ws(websocket)方式: uri: ws://localhost
+#          第二种：http方式: uri: http://localhost
+#          第三种：lb(注册中心中服务名字)方式: uri: lb://brilliance-consumer 同一个注册中心
+          predicates:
+            - Path=/feign/**
+          filters:
+            - AddRequestHeader=X-Request-Foo, Bar
+#          filters:
+#            - StripPrefix=1
+      discovery:
+        locator:
+          enabled: true

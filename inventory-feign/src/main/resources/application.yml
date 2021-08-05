@@ -1,0 +1,25 @@
+#server:
+##  servlet:
+##    context-path: /inventoryFeign
+#  port: 8072
+#
+#logging:
+#  level:
+#    com.feign.inventoryFeign.service.InventoryServiceFeign: debug
+#
+#feign:
+#  circuitbreaker:
+#    enabled: true
+#
+#spring:
+#  application:
+#    name: inventory-feign
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: 127.0.0.1:8848
+#  rabbitmq:
+#    host: 127.0.0.1
+#    port: 5672
+#    username: guest
+#    password: guest

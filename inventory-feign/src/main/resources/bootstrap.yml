@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: inventory-feign
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+#      discovery:
+#        server-addr: 127.0.0.1:8848
+#        namespace: f075a12d-326c-4ef2-9f6a-8fc64f4a43a6
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yaml
+        group: DEV_GROUP
+        namespace: f075a12d-326c-4ef2-9f6a-8fc64f4a43a6
+
+

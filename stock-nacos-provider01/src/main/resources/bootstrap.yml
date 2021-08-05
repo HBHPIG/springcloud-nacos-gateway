@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: stock-nacos-provider
+  cloud:
+    nacos:
+#      discovery:
+#        server-addr: 127.0.0.1:8848
+      config:
+        server-addr: 127.0.0.1:8848 #nacos中心地址
+
+#        prefix: ${spring.application.name}
+#        file-extension: yml  # 配置文件格式
+#        group: DEFAULT_GROUP
+#          ext-config[0]: stock-nacos-provider-dev.yaml
+#  profiles:
+#    active: dev  # 环境标识

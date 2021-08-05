@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.my.inventory.modules.base.dao.BaseSpecsDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.my.inventory.modules.base.entity.BaseSpecs">
+        <id column="specs_id" property="specsId" />
+        <result column="specs_name" property="specsName" />
+        <result column="specs_code" property="specsCode" />
+        <result column="company_id" property="companyId" />
+        <result column="creatime" property="creatime" />
+        <result column="optuser" property="optuser" />
+        <result column="status" property="status" />
+        <result column="remarks" property="remarks" />
+        <result column="user_id" property="userId" />
+    </resultMap>
+
+</mapper>
