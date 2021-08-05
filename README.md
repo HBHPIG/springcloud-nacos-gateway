@@ -12,9 +12,9 @@
 
 #### 安装教程
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+1.  redis安装
+2.  nacos安装
+3.  RabbitMQ安装之前，需要安装erlang工具
 
 #### 使用说明
 
