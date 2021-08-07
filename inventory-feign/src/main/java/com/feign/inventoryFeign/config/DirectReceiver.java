@@ -15,7 +15,7 @@ import java.util.UUID;
  * @author HBH
  */
 @Component
-@RabbitListener(queues = {"TestDirectQueue","TestDirectQueue1"})
+//@RabbitListener(queues = {"TestDirectQueue","TestDirectQueue1"})
 public class DirectReceiver {
 
     @RabbitHandler

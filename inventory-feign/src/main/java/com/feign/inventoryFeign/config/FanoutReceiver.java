@@ -11,13 +11,13 @@ import java.util.Map;
  * @author HBH
  */
 @Component
-//@RabbitListener(queues = {"TestDirectQueue","TestDirectQueue1"})
-public class DirectReceiverNew {
+//@RabbitListener(queues = {"fanout.A","fanout.B","fanout.C"})
+public class FanoutReceiver {
 
     @RabbitHandler
     public void process(Map message){
-        if(!message.isEmpty()){
-            System.out.println("第二个DirectReceiver消费者收到消息："+message.toString());
-        }
+
+        System.out.println("FanoutReceiver消费者收到消息："+message.toString());
+
     }
 }

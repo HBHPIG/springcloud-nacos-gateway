@@ -61,4 +61,18 @@ public class RabbitController {
         rabbitTemplate.convertAndSend("topicExchange", "topic.woman", womanMap);
         return "ok";
     }
+
+    @GetMapping("/sendFanoutMessage")
+    public String sendFanoutMessage() {
+        String messageId = String.valueOf(UUID.randomUUID());
+        String messageData = "message: woman is all ";
+        String createTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        Map<String, Object> womanMap = new HashMap<>();
+        womanMap.put("messageId", messageId);
+        womanMap.put("messageData", messageData);
+        womanMap.put("createTime", createTime);
+//        womanMap.put("topic.woman","topic.woman");
+        rabbitTemplate.convertAndSend("fanoutExchange", null, womanMap);
+        return "ok";
+    }
 }

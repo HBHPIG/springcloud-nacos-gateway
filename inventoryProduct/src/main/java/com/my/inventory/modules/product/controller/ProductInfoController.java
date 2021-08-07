@@ -123,4 +123,56 @@ public class ProductInfoController {
 
         return R.ok().put("sendDirectMessage", map);
     }
+
+    @GetMapping("/TestMessageAck")
+    public String TestMessageAck() {
+        String messageId = String.valueOf(UUID.randomUUID());
+        String messageData = "message: non-existent-exchange test message ";
+        String createTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        Map<String, Object> map = new HashMap<>();
+        map.put("messageId", messageId);
+        map.put("messageData", messageData);
+        map.put("createTime", createTime);
+        rabbitTemplate.convertAndSend("non-existent-exchange", "TestDirectRouting", map);
+        return "ok";
+    }
+
+    @GetMapping("/TestMessageAck2")
+    public String TestMessageAck2() {
+        String messageId = String.valueOf(UUID.randomUUID());
+        String messageData = "message: lonelyDirectExchange test message ";
+        String createTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        Map<String, Object> map = new HashMap<>();
+        map.put("messageId", messageId);
+        map.put("messageData", messageData);
+        map.put("createTime", createTime);
+        rabbitTemplate.convertAndSend("lonelyDirectExchange", "TestDirectRouting", map);
+        return "ok";
+    }
+
+    @GetMapping("/TestMessageAck3")
+    public String TestMessageAck3() {
+        String messageId = String.valueOf(UUID.randomUUID());
+        String messageData = "message: lonelyDirectExchange test message ";
+        String createTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        Map<String, Object> map = new HashMap<>();
+        map.put("messageId", messageId);
+        map.put("messageData", messageData);
+        map.put("createTime", createTime);
+        rabbitTemplate.convertAndSend("lonelyDirectExchange1", "TestDirectRouting1", map);
+        return "ok";
+    }
+
+    @GetMapping("/TestMessageAck4")
+    public String TestMessageAck4() {
+        String messageId = String.valueOf(UUID.randomUUID());
+        String messageData = "message: lonelyDirectExchange test message ";
+        String createTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        Map<String, Object> map = new HashMap<>();
+        map.put("messageId", messageId);
+        map.put("messageData", messageData);
+        map.put("createTime", createTime);
+        rabbitTemplate.convertAndSend("TestDirectExchange", "TestDirectRouting", map);
+        return "ok";
+    }
 }

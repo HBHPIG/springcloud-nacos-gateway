@@ -43,6 +43,8 @@ spring:
     port: 5672
     password: guest
     username: guest
+    publisher-returns: true  # 确认发送到消息队列
+    publisher-confirm-type: correlated # 确认消息已经发送到交换机
 
 mybatis-plus:
   mapper-locations: classpath:mapper/*.xml
