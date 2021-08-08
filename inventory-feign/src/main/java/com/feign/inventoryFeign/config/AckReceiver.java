@@ -11,12 +11,13 @@ import java.util.Map;
 /**
  * @author HBH
  */
+
 @Component
 public class AckReceiver implements ChannelAwareMessageListener {
 
-    private final static String TESTDIRECTQUEUE = "TestDirectQueue";
+    private static final  String TESTDIRECTQUEUE = "TestDirectQueue";
 
-    private final static String TESTDIRECTQUEUE1 = "TestDirectQueue1";
+    private static final  String TESTDIRECTQUEUE1 = "TestDirectQueue1";
 
     @Override
     public void onMessage (Message message, Channel channel) throws Exception {
@@ -24,9 +25,9 @@ public class AckReceiver implements ChannelAwareMessageListener {
         long deliveryTag = message.getMessageProperties().getDeliveryTag();
         try {
             String msg = message.toString();
-
+            System.out.println(msg);
             String[] myArray = msg.split("'");
-
+            int aa = 1/0;
             Map<String, String> msgMap = mapStringToMap(myArray[1].trim(), 3);
 
             if (TESTDIRECTQUEUE.equals(message.getMessageProperties().getConsumerQueue())){
@@ -40,7 +41,7 @@ public class AckReceiver implements ChannelAwareMessageListener {
                 channel.basicAck(deliveryTag, true);
             }
 
-            if (TESTDIRECTQUEUE1.equals(message.getMessageProperties().getConsumerQueue())){
+           else if (TESTDIRECTQUEUE1.equals(message.getMessageProperties().getConsumerQueue())){
 
                 System.out.println(TESTDIRECTQUEUE1+"   deliveryTag="+deliveryTag+"  MyAckReceiver   "+msgMap.toString());
 
@@ -57,9 +58,17 @@ public class AckReceiver implements ChannelAwareMessageListener {
 //                channel.basicNack(deliveryTag, true, true);
             }
 
-            if ("fanout.A".equals(message.getMessageProperties().getConsumerQueue())){
+           else if ("fanout.A".equals(message.getMessageProperties().getConsumerQueue())){
 
                 System.out.println("fanout.A"+"   deliveryTag="+deliveryTag+"  MyAckReceiver   "+msgMap.toString());
+
+                System.out.println("消息的主题消息来自："+message.getMessageProperties().getConsumerQueue());
+                /**
+                 * 第二个参数，手动确认可以批处理。true：可以一次性确认，deliveryTag 小于等于传入值的所有消息
+                 */
+                channel.basicAck(deliveryTag, true);
+            } else {
+                System.out.println(message.getMessageProperties().getConsumerQueue()+"   deliveryTag="+deliveryTag+"  MyAckReceiver   "+msgMap.toString());
 
                 System.out.println("消息的主题消息来自："+message.getMessageProperties().getConsumerQueue());
                 /**
@@ -70,8 +79,9 @@ public class AckReceiver implements ChannelAwareMessageListener {
 
 
         }catch (Exception e){
+            System.out.println("处理消息时显示异常,异常是:{},现拒绝消费当前消息且不再放回队列!!!"+e.getMessage());
             channel.basicReject(deliveryTag, false);
-            e.printStackTrace();
+//            e.printStackTrace();
         }
     }
 

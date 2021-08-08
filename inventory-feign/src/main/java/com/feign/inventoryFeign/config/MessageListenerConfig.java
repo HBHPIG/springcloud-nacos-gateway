@@ -29,7 +29,8 @@ public class MessageListenerConfig {
         // 默认自动确认，改为手动
         container.setAcknowledgeMode(AcknowledgeMode.MANUAL);
 
-        container.setQueueNames("TestDirectQueue", "TestDirectQueue1", "fanout.A", "fanout.B", "fanout.C");
+        container.setQueueNames("TestDirectQueue", "TestDirectQueue1", "fanout.A", "fanout.B",
+                "fanout.C","Topic.man", "Topic.woman");
         container.setMessageListener(ackReceiver);
 
         return container;

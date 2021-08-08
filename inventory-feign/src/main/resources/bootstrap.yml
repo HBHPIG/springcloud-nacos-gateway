@@ -14,4 +14,9 @@ spring:
         group: DEV_GROUP
         namespace: f075a12d-326c-4ef2-9f6a-8fc64f4a43a6
 
+#  rabbitmq:
+#    listener:
+#      simple:
+#        acknowledge-mode: manual
+
 
