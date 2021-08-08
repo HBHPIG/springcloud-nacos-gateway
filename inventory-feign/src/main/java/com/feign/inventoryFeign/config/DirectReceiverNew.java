@@ -17,7 +17,7 @@ public class DirectReceiverNew {
     @RabbitHandler
     public void process(Map message){
         if(!message.isEmpty()){
-            System.out.println("第二个DirectReceiver消费者收到消息："+message.toString());
+            System.out.println("第二个DirectReceiver消费者收到消息： "+message.toString());
         }
     }
 }
