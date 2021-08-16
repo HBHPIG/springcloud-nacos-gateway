@@ -7,6 +7,8 @@ import com.my.inventory.modules.product.service.ProductInfoService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * <p>
@@ -23,11 +25,13 @@ public class ProductInfoServiceImpl extends ServiceImpl<ProductInfoDao, ProductI
     RedisUtil redisUtil;
 
     @Override
+//    @Transactional
     public ProductInfo getProductBuId(Integer id) {
         return this.selectById(id);
     }
 
     @Override
+//    @Transactional(propagation = Propagation.REQUIRED)
     public String reductInventory () {
 
 

@@ -3,12 +3,16 @@ package com.feign.inventoryFeign.controller;
 
 import com.feign.inventoryFeign.config.R;
 import com.feign.inventoryFeign.service.InventoryServiceFeign;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
  * <p>
@@ -20,6 +24,7 @@ import org.springframework.web.client.RestTemplate;
  */
 @RestController
 @RequestMapping("/feign")
+@Api(tags = "test")
 public class InventoryController {
 
     @Autowired
@@ -37,7 +42,14 @@ public class InventoryController {
     @PostMapping("/productInfo/reductInventory")
     public R reductInventory(){
 
-        return inventoryServiceFeign.reductInventory();
+        Runnable r = () -> {
+            inventoryServiceFeign.reductInventory();
+        };
+        for (int i = 0 ; i<10000 ;i++){
+            new Thread(r,"reductInventory"+i).start();
+        }
+
+        return R.ok().put("run","rrrr");
     }
 
     @GetMapping("/productInfo/sayHello")

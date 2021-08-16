@@ -3,6 +3,7 @@ package com.feign.inventoryFeign.service;
 import com.feign.inventoryFeign.config.R;
 import org.springframework.cloud.openfeign.FallbackFactory;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * <p>
@@ -28,6 +29,7 @@ public class InventoryServiceFeignBack implements InventoryServiceFeign {
     }
 
     @Override
+//    @Transactional
     public R reductInventory () {
         return null;
     }
