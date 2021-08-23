@@ -48,7 +48,6 @@ public class InventoryController {
         for (int i = 0 ; i<10000 ;i++){
             new Thread(r,"reductInventory"+i).start();
         }
-
         return R.ok().put("run","rrrr");
     }
 

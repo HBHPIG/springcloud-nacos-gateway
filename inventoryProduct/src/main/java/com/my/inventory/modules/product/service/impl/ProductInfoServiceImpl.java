@@ -10,6 +10,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.RandomAccessFile;
+import java.nio.MappedByteBuffer;
+
 /**
  * <p>
  *  服务实现类
@@ -25,16 +28,17 @@ public class ProductInfoServiceImpl extends ServiceImpl<ProductInfoDao, ProductI
     RedisUtil redisUtil;
 
     @Override
-//    @Transactional
+    @Transactional
     public ProductInfo getProductBuId(Integer id) {
         return this.selectById(id);
     }
 
     @Override
-//    @Transactional(propagation = Propagation.REQUIRED)
+    @Transactional(propagation = Propagation.REQUIRED)
     public String reductInventory () {
 
-
+//        RandomAccessFile;
+//        MappedByteBuffer;
 
         return null;
     }
